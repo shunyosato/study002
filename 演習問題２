@@ -1,0 +1,33 @@
+1. com.example.study.models パッケージに `DrivingRecord` (走行記録) クラスを定義する
+ - フィールドは `km: Double` を持つ
+2. com.example.study.models パッケージに `RentaCar` (レンタカー) traitを定義する
+ - 抽象フィールド `carType: String` (車の種類) `rentPrice: Int` (貸出料金) と `kmPrice: Int` (1キロ毎のガソリン代) を持つ
+ - フィールドは `records: scala.collection.mutable.ListBuffer[DrivingRecord]` を持つ
+ - recordsに走行記録を1つ追加する `run` メソッドを持つ
+2. com.example.study.models パッケージに `CompactCar` (コンパクトカー) クラスを定義する
+ - carTypeは "compact car"
+ - rentPriceは 5000
+ - kmPriceは 100
+3. com.example.study.models パッケージに `Wagon` (ワゴン) クラスを定義する
+ - carTypeは "wagon"
+ - rentPriceは 8000
+ - kmPriceは 200
+4. com.example.study.models パッケージに `Receipt` (領収書) クラスを定義する
+ - フィールドは `cars: scala.collection.mutable.ListBuffer[RentaCar]` を持つ
+ - carsにレンタカーを1つ追加する `add` メソッドを持つ
+ - carsのn番目のレンタカーを削除する `remove` メソッドを持つ
+5. com.example.study.service パッケージに `RentalShop` (貸出店) オブジェクトを定義する
+ - 領収書を引数に受け取り、全ての貸出金額を返すaccountingメソッドを持つ
+   - 各クルマのレンタル代は rentPrice + kmPrice * 走行距離で決まる
+ - 領収書を引数に受け取り、車の種類ごとに貸し出し金額を返すaccountingByCarTypeメソッドを持つ
+   - 各クルマのレンタル代は rentPrice + kmPrice * 走行距離で決まる
+6. `Application` objectのrunメソッド内で `CompactCar` インスタンスを1台分作成する
+7. 6で作成したcompactCarで `run` する
+ - km数はいくらでもよい
+8. `Application` objectのrunメソッド内で `Wagon` インスタンスを2台分作成する
+9. 8で作成した `Wagon` インスタンスで `run` する
+ - km数はいくらでもよい (2台ともrunすること)
+10. `Application` objectのrunメソッド内で `Receipt` インスタンスを1つを作成する
+11. 6, 8で作成したrentaCarを全て 10 で作成したreceiptに追加 (add) する
+12. RentalShopのaccountingメソッドに領収書を渡した結果をprintlnする
+13. RentalShopのaccountingByCarTypeメソッドに領収書を渡した結果をprintlnする
